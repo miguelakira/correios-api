@@ -2,7 +2,7 @@ require "rubygems"
 require "correios"
 
 # obtendo as informacoes de uma encomenda
-encomenda = Correios.encomenda("ES446391025BR")
+encomenda = Correios.encomenda("PB470274767BR")
 
 puts "Encomenda: #{encomenda.numero}"
 puts

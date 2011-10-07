@@ -3,6 +3,7 @@ require "hpricot"
 require "open-uri"
 require "encomenda"
 require "encomenda_status"
+require "date"
 
 class Correios
   @url = "http://websro.correios.com.br"
@@ -32,7 +33,8 @@ class Correios
           status = EncomendaStatus.new
           parsed_data = td.inner_html.scan(/(\d{2})\/(\d{2})\/(\d{4}) (\d{2}):(\d{2})/)
           timestamp = parsed_data[0][2] + parsed_data[0][1] + parsed_data[0][0] + parsed_data[0][3] + parsed_data[0][4] + "00"
-          status.data = DateTime.parse(timestamp)
+          raise timestamp.inspect
+          #status.data = DateTime.parse(timestamp)
         else
           encomenda.primeiro_status_disponivel.detalhes = td.inner_html
         end
